@@ -12,14 +12,6 @@ function Destinations() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  /* ACCESSIBILITY: dynamic title updates based on search query
-   so screen readers announce what was searched for */
-useEffect(() => {
-  document.title = query
-    ? `Results for "${query}" — RouteWise`
-    : "Search Destinations — RouteWise"
-}, [query])
-
   const fetchDestinations = async () => {
     setLoading(true)
     setError(null)
@@ -33,23 +25,29 @@ useEffect(() => {
     }
   }
 
+  /* ACCESSIBILITY: dynamic title updates based on search query
+   so screen readers announce what was searched for */
+  useEffect(() => {
+    document.title = query
+      ? `Results for "${query}" — RouteWise`
+      : "Search Destinations — RouteWise"
+  }, [query])
+
+  useEffect(() => {
+    if (query) {
+      fetchDestinations()
+    }
+  }, [query])
+
   return (
     <>
-      {/*
-        ACCESSIBILITY: Dynamic page title updates based on the search
-        query. When a screen reader user lands on this page after
-        searching "Paris", the title announces
-        "Results for Paris — RouteWise" immediately.
-      */}
-      
-
       <div className="min-h-screen bg-gray-50">
 
         {/*
           ACCESSIBILITY: section with aria-label marks the search
           header as a distinct landmark region on the page.
         */}
-        <section aria-label="Search destinations" className="bg-teal-500 py-10 px-8">
+        <section aria-label="Search destinations" className="bg-[#0099BB] py-10 px-8">
           <h1 className="text-white text-3xl font-bold text-center mb-6">
             Find Your Next Destination
           </h1>
@@ -220,7 +218,7 @@ function DestinationCard({ destination, navigate }) {
       */}
       <div
         aria-hidden="true"
-        className="w-full h-48 bg-teal-400 flex items-center justify-center"
+        className="w-full h-48 bg-[#0099BB]  flex items-center justify-center"
       >
         <span className="text-white text-6xl font-bold">
           {name?.charAt(0)}

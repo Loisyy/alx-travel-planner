@@ -97,7 +97,7 @@ useEffect(() => {
         <div
           role="banner"
           aria-labelledby="destination-heading"
-          className="relative bg-teal-500 py-16 px-8 text-white text-center"
+          className="relative bg-[#0099BB] py-16 px-8 text-white text-center"
         >
           <button
             onClick={() => navigate(-1)}
@@ -110,7 +110,7 @@ useEffect(() => {
           <h1 id="destination-heading" className="text-4xl font-bold mb-2">
             {destination.name}
           </h1>
-          <p className="text-teal-100">
+          <p className="text-teal-50">
             {destination.address?.cityName}, {destination.address?.countryName}
           </p>
 
@@ -126,7 +126,7 @@ useEffect(() => {
             className={`mt-4 px-6 py-2 rounded-full font-medium transition-colors ${
               isAlreadySaved
                 ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                : "bg-white text-teal-600 hover:bg-gray-100"
+                : "bg-white text-[#0099BB]  hover:bg-gray-100"
             }`}
           >
             <span aria-hidden="true">{isAlreadySaved ? "✅" : "➕"}</span>{" "}
@@ -266,7 +266,7 @@ useEffect(() => {
                   >
                     <div
                       aria-hidden="true"
-                      className="w-full h-32 bg-teal-100 rounded-lg flex items-center justify-center mb-4"
+                      className="w-full h-32 bg-[#0099BB]  rounded-lg flex items-center justify-center mb-4"
                     />
                     <h3 className="text-lg font-bold mb-2">{hotel.name}</h3>
                     <p className="text-gray-500 text-sm mb-2">
