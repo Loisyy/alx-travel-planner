@@ -1,5 +1,8 @@
 import Hero from "../components/Hero";
 import Search from "../components/Search";
+import FlagsStrip from "../components/FlagsStrip";
+import TopVisited from "../components/TopVisited";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -11,6 +14,9 @@ function Home() {
         </h2>
       </div>
       <Search />
+      <FlagsStrip />
+      <TopVisited />
+      <Footer />
     </div>
   );
 }
