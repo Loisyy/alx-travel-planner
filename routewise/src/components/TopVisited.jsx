@@ -1,6 +1,6 @@
-import romeImg from "../assets/images/rome.jpg"
-import parisImg from "../assets/images/paris.jpg"
-import englandImg from "../assets/images/england.jpg"
+import romeImg from "../assets/images/rome.png"
+import parisImg from "../assets/images/paris.png"
+import englandImg from "../assets/images/england.png"
 
 const destinations = [
   {

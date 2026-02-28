@@ -15,7 +15,7 @@ function Footer() {
             aria-label="RouteWise home page"
             className="flex items-center gap-1 mb-4"
           >
-            <span aria-hidden="true" className="text-pink-500 text-xl">📍</span>
+            <span aria-hidden="true" className="text-pink-500 text-xl">🤳</span>
             <span className="font-bold text-xl text-white">RouteWise</span>
           </Link>
           <p className="text-sm leading-relaxed">
@@ -58,7 +58,7 @@ function Footer() {
                 rel="noreferrer"
                 className="hover:text-pink-500"
               >
-                <span aria-hidden="true">🐦</span>
+                <span aria-hidden="true">🛩️</span>
               </a>
             </li>
             <li>
@@ -80,7 +80,7 @@ function Footer() {
                 rel="noreferrer"
                 className="hover:text-pink-500"
               >
-                <span aria-hidden="true">📸</span>
+                <span aria-hidden="true">🚗</span>
               </a>
             </li>
             <li>
@@ -91,7 +91,7 @@ function Footer() {
                 rel="noreferrer"
                 className="hover:text-pink-500"
               >
-                <span aria-hidden="true">▶️</span>
+                <span aria-hidden="true">🏠</span>
               </a>
             </li>
           </ul>

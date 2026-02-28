@@ -30,7 +30,7 @@ function Navbar() {
         >
           {/* ACCESSIBILITY: aria-hidden hides decorative emoji from
               screen readers — it adds no meaning so we skip it */}
-          <span aria-hidden="true" className="text-pink-500 text-xl">📍</span>
+          <span aria-hidden="true" className="text-pink-500 text-xl">🤳</span>
           <span className="font-bold text-xl text-pink-500">RouteWise</span>
         </Link>
 
