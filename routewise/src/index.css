@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* 
+    ACCESSIBILITY: Global focus ring for keyboard navigation.
+    focus-visible only shows when using keyboard, not mouse clicks.
+    This means mouse users see no change but keyboard users always
+    see a clear pink outline on whatever element is focused.
+    Without this, keyboard users cannot tell where they are on the page.
+  */
+  *:focus-visible {
+    outline: 2px solid #ec4899;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* 
+    ACCESSIBILITY: Smooth scrolling for skip navigation link.
+    When a keyboard user clicks "Skip to main content", the page
+    scrolls smoothly to the main content instead of jumping abruptly.
+  */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 
+    ACCESSIBILITY: Respect user's motion preferences.
+    Some users have vestibular disorders and are sensitive to motion.
+    If they have turned on "Reduce Motion" in their OS settings,
+    we disable all animations and transitions for them.
+  */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
