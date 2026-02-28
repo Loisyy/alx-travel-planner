@@ -1,25 +1,20 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-
 
   return (
     <nav className="bg-white shadow-sm relative z-50">
 
-
       {/* Main Bar */}
       <div className="flex items-center justify-between px-8 py-4">
-
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-1">
           <span className="text-pink-500 text-xl">🤳</span>
           <span className="font-bold text-xl text-pink-500">RouteWise</span>
         </Link>
-
 
         {/* Desktop Nav Links - hidden on mobile */}
         <div className="hidden md:flex items-center gap-8">
@@ -28,7 +23,6 @@ function Navbar() {
           <Link to="/flights" className="text-gray-700 hover:text-pink-500">Flight</Link>
           <Link to="/itinerary" className="text-gray-700 hover:text-pink-500">🗺️ Itinerary</Link>
         </div>
-
 
         {/* Desktop Auth Buttons - hidden on mobile */}
         <div className="hidden md:flex items-center gap-4">
@@ -41,7 +35,6 @@ function Navbar() {
           </Link>
         </div>
 
-
         {/* Hamburger Button - only visible on mobile */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -52,9 +45,7 @@ function Navbar() {
           <span className={`block w-6 h-0.5 bg-gray-700 transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
         </button>
 
-
       </div>
-
 
       {/* Mobile Menu - drops below the main bar */}
       {menuOpen && (
@@ -71,9 +62,6 @@ function Navbar() {
           <Link to="/itinerary" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-pink-500">
             🗺️ Itinerary
           </Link>
-
-
-          {/* Divider */}
           <div className="border-t border-gray-100 pt-4 flex flex-col gap-3">
             <Link to="/signin" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-pink-500">
               SignIn
@@ -89,10 +77,8 @@ function Navbar() {
         </div>
       )}
 
-
     </nav>
   )
 }
-
 
 export default Navbar

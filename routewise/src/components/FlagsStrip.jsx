@@ -5,7 +5,6 @@ import usaImg from "../assets/images/usa.png"
 import venezuelaImg from "../assets/images/venezuela.png"
 import irelandImg from "../assets/images/ireland.png"
 
-
 const flags = [
   { country: "Norway", image: norwayImg },
   { country: "Portugal", image: portugalImg },
@@ -15,7 +14,6 @@ const flags = [
   { country: "Ireland", image: irelandImg },
 ]
 
-
 function FlagsStrip() {
   return (
     <div className="bg-rose-50 py-6 px-8">
@@ -23,20 +21,19 @@ function FlagsStrip() {
         {flags.map((flag) => (
           <div
             key={flag.country}
-            className="flex items-center gap-0 cursor-pointer hover:scale-105 transition-transform"
+            className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform"
           >
             <img
               src={flag.image}
               alt={flag.country}
               className="w-12 h-12 rounded-full object-cover"
             />
-            <span className="font-semibold italic text-gray-700 -skew-x-12 inline-block">{flag.country}</span>
+            <span className="font-semibold italic text-gray-700">Travel</span>
           </div>
         ))}
       </div>
     </div>
   )
 }
-
 
 export default FlagsStrip

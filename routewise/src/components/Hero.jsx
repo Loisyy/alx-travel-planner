@@ -1,4 +1,4 @@
-import heroRoute from "../assets/images/hero-route.jpg";
+import heroRoute from "../assets/images/hero-route.jpg"
 
 function Hero() {
   return (
@@ -11,6 +11,7 @@ function Hero() {
 
       {/* Content */}
       <div className="relative flex flex-col md:flex-row min-h-[520px]">
+
         {/* Left Side - Text */}
         <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-12 text-white">
           <p className="text-sm mb-2">Plan Your Next Move</p>
@@ -26,17 +27,18 @@ function Hero() {
           </button>
         </div>
 
-        {/* Right Side - Hidden on mobile, visible on desktop */}
+        {/* Right Side - visible on desktop only */}
         <div className="hidden md:flex w-1/2 items-center justify-center py-12">
           <img
             src={heroRoute}
             alt="Travel"
-            className="w-[80%] rounded-xl shadow-xl object-cover max-h-[500px] ml-10"
+            className="w-full md:w-[80%] rounded-xl shadow-xl object-cover max-h-[400px]"
           />
         </div>
+
       </div>
     </div>
-  );
+  )
 }
 
-export default Hero;
+export default Hero

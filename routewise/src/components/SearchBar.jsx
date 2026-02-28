@@ -1,11 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-
 function SearchBar() {
   const [query, setQuery] = useState("")
   const navigate = useNavigate()
-
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -13,7 +11,6 @@ function SearchBar() {
       navigate(`/destinations?search=${query}`)
     }
   }
-
 
   return (
     <form
@@ -37,6 +34,5 @@ function SearchBar() {
     </form>
   )
 }
-
 
 export default SearchBar

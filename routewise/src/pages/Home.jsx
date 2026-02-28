@@ -1,8 +1,7 @@
-import Hero from "../components/Hero";
-import Search from "../components/Search";
-import FlagsStrip from "../components/FlagsStrip";
-import TopVisited from "../components/TopVisited";
-import Footer from "../components/Footer";
+import Hero from '../components/Hero'
+import FlagsStrip from '../components/FlagsStrip'
+import TopVisited from '../components/TopVisited'
+import SearchBar from '../components/SearchBar'
 
 function Home() {
   return (
@@ -12,13 +11,12 @@ function Home() {
         <h2 className="text-center text-xl font-semibold text-gray-700 mb-4">
           Where do you want to go?
         </h2>
+        <SearchBar />
       </div>
-      <Search />
       <FlagsStrip />
       <TopVisited />
-      <Footer />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
