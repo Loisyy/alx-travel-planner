@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { useEffect } from "react"
 import { useItinerary } from "../context/ItineraryContext"
 import { useNavigate } from "react-router-dom"
 
@@ -6,22 +6,16 @@ function Itinerary() {
   const { itinerary, removeFromItinerary, clearItinerary } = useItinerary()
   const navigate = useNavigate()
 
+  /* ACCESSIBILITY: title includes saved count so screen readers
+   announce how many destinations are saved without navigating */
+useEffect(() => {
+  document.title = itinerary.length > 0
+    ? `My Itinerary (${itinerary.length}) — RouteWise`
+    : "My Itinerary — RouteWise"
+}, [itinerary])
+
   return (
     <>
-      {/*
-        ACCESSIBILITY: Unique page title for the itinerary page.
-        Includes the count of saved destinations so screen reader
-        users immediately know how many trips they have saved
-        without having to navigate through the page content.
-      */}
-      <Helmet>
-        <title>
-          {itinerary.length > 0
-            ? `My Itinerary (${itinerary.length}) — RouteWise`
-            : "My Itinerary — RouteWise"}
-        </title>
-      </Helmet>
-
       <div className="min-h-screen bg-gray-50">
 
         {/*

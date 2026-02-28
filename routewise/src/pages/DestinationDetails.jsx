@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { useLocation, useParams, useNavigate } from "react-router-dom"
-import { Helmet } from "react-helmet-async"
 import { searchFlights, searchHotels } from "../services/amadeus"
 import { useItinerary } from "../context/ItineraryContext"
 
@@ -32,6 +31,14 @@ function DestinationDetails() {
   const departureDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
     .toISOString()
     .split("T")[0]
+
+    /* ACCESSIBILITY: page title includes destination name so
+   screen readers announce exactly where the user landed */
+useEffect(() => {
+  document.title = destination?.name
+    ? `${destination.name} — RouteWise`
+    : "Destination — RouteWise"
+}, [destination])
 
   useEffect(() => {
     if (!cityCode) return
@@ -84,14 +91,7 @@ function DestinationDetails() {
 
   return (
     <>
-      <Helmet>
-        <title>{destination?.name} — RouteWise</title>
-        <meta
-          name="description"
-          content={`Explore flights and hotels in ${destination?.name}, ${destination?.address?.countryName}`}
-        />
-      </Helmet>
-
+     
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
         <div

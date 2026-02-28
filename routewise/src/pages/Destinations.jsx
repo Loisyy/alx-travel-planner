@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { useSearchParams, useNavigate } from "react-router-dom"
-import { Helmet } from "react-helmet-async"
 import { searchDestinations } from "../services/amadeus"
 import SearchBar from "../components/SearchBar"
 
@@ -13,11 +12,13 @@ function Destinations() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    if (query) {
-      fetchDestinations()
-    }
-  }, [query])
+  /* ACCESSIBILITY: dynamic title updates based on search query
+   so screen readers announce what was searched for */
+useEffect(() => {
+  document.title = query
+    ? `Results for "${query}" — RouteWise`
+    : "Search Destinations — RouteWise"
+}, [query])
 
   const fetchDestinations = async () => {
     setLoading(true)
@@ -40,13 +41,7 @@ function Destinations() {
         searching "Paris", the title announces
         "Results for Paris — RouteWise" immediately.
       */}
-      <Helmet>
-        <title>
-          {query
-            ? `Results for "${query}" — RouteWise`
-            : "Search Destinations — RouteWise"}
-        </title>
-      </Helmet>
+      
 
       <div className="min-h-screen bg-gray-50">
 
