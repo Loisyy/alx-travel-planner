@@ -17,10 +17,8 @@ function Destinations() {
     setError(null)
     try {
       const results = await searchDestinations(query)
-      console.log("[v0] searchDestinations returned:", results)
       setDestinations(results || [])
     } catch (err) {
-      console.error("[v0] searchDestinations error:", err)
       setError("Something went wrong. Please try again.")
     } finally {
       setLoading(false)
