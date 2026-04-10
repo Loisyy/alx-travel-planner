@@ -176,10 +176,16 @@ function Destinations() {
 }
 
 function DestinationCard({ destination, navigate }) {
-  const { name, address, geoCode } = destination
+  // Amadeus API returns: { id, self, type, subType, name, detailedName, iataCode, geoCode, address }
+  const { name, iataCode, geoCode, address } = destination
+  
+  const countryCode = address?.countryCode || ""
+  const cityName = address?.cityName || ""
+  const countryName = address?.countryName || ""
 
   const handleExplore = () => {
-    navigate(`/destination/${address?.cityCode}`, {
+    // Use iataCode if available, otherwise fall back to empty
+    navigate(`/destination/${iataCode || countryCode}`, {
       state: { destination }
     })
   }
@@ -207,7 +213,7 @@ function DestinationCard({ destination, navigate }) {
       uniquely rather than announcing them all the same way.
     */
     <article
-      aria-label={`${name}, ${address?.countryName}`}
+      aria-label={`${name}, ${countryName}`}
       className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden"
     >
 
@@ -234,13 +240,13 @@ function DestinationCard({ destination, navigate }) {
             hierarchy to build a page outline.
           */}
           <h3 className="text-xl font-bold">{name}</h3>
-          <span className="text-gray-500 text-sm">{address?.countryName}</span>
+          <span className="text-gray-500 text-sm">{countryName}</span>
         </div>
 
         <div className="flex items-center gap-1 text-gray-600 text-sm mb-4">
           {/* ACCESSIBILITY: aria-hidden on pin emoji — decorative */}
           <span aria-hidden="true">📍</span>
-          <p>{address?.cityName}, {address?.countryCode}</p>
+          <p>{cityName}{cityName && countryCode ? ', ' : ''}{countryCode}</p>
         </div>
 
         {geoCode && (
@@ -259,7 +265,7 @@ function DestinationCard({ destination, navigate }) {
         <button
           onClick={handleExplore}
           onKeyDown={handleKeyDown}
-          aria-label={`Explore ${name}, ${address?.countryName}`}
+          aria-label={`Explore ${name}, ${countryName}`}
           className="w-full bg-pink-500 text-white py-2 rounded-full text-sm hover:bg-pink-600"
         >
           Explore
