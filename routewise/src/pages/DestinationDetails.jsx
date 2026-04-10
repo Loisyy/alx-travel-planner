@@ -32,8 +32,7 @@ function DestinationDetails() {
     .toISOString()
     .split("T")[0]
 
-    /* ACCESSIBILITY: page title includes destination name so
-   screen readers announce exactly where the user landed */
+
 useEffect(() => {
   document.title = destination?.name
     ? `${destination.name} — RouteWise`
@@ -81,7 +80,7 @@ useEffect(() => {
         <button
           onClick={() => navigate("/")}
           aria-label="Return to RouteWise home page"
-          className="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600"
+          className="bg-[#FF7F7F] text-white px-6 py-2 rounded-full hover:bg-[#FF7F7F]"
         >
           Go Home
         </button>
@@ -97,7 +96,7 @@ useEffect(() => {
         <div
           role="banner"
           aria-labelledby="destination-heading"
-          className="relative bg-[#0099BB] py-16 px-8 text-white text-center"
+          className="relative bg-[#019FCD] py-16 px-8 text-white text-center"
         >
           <button
             onClick={() => navigate(-1)}
@@ -126,7 +125,7 @@ useEffect(() => {
             className={`mt-4 px-6 py-2 rounded-full font-medium transition-colors ${
               isAlreadySaved
                 ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                : "bg-white text-[#0099BB]  hover:bg-gray-100"
+                : "bg-white text-[#019FCD]  hover:bg-gray-100"
             }`}
           >
             <span aria-hidden="true">{isAlreadySaved ? "✅" : "➕"}</span>{" "}
@@ -148,8 +147,8 @@ useEffect(() => {
             onClick={() => setActiveTab("flights")}
             className={`px-6 py-2 rounded-full font-medium transition-colors ${
               activeTab === "flights"
-                ? "bg-pink-500 text-white"
-                : "text-gray-600 hover:text-pink-500"
+                ? "bg-[#FF7F7F] text-white"
+                : "text-gray-600 hover:text-[#FF7F7F]"
             }`}
           >
             <span aria-hidden="true">✈️</span> Flights
@@ -163,8 +162,8 @@ useEffect(() => {
             onClick={() => setActiveTab("hotels")}
             className={`px-6 py-2 rounded-full font-medium transition-colors ${
               activeTab === "hotels"
-                ? "bg-pink-500 text-white"
-                : "text-gray-600 hover:text-pink-500"
+                ? "bg-[#FF7F7F] text-white"
+                : "text-gray-600 hover:text-[#FF7F7F]"
             }`}
           >
             <span aria-hidden="true">🏨</span> Hotels
@@ -183,7 +182,7 @@ useEffect(() => {
 
             {loadingFlights && (
               <div role="status" aria-label="Loading flights" className="flex justify-center py-20">
-                <div aria-hidden="true" className="w-10 h-10 border-4 border-pink-500 border-t-transparent rounded-full animate-spin" />
+                <div aria-hidden="true" className="w-10 h-10 border-4 border-[#FF7F7F] border-t-transparent rounded-full animate-spin" />
               </div>
             )}
 
@@ -220,12 +219,12 @@ useEffect(() => {
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-pink-500">
+                    <p className="text-2xl font-bold text-[#FF7F7F]">
                       {flight.price?.total} {flight.price?.currency}
                     </p>
                     <button
                       aria-label={`Book flight from ${flight.itineraries[0]?.segments[0]?.departure?.iataCode} to ${flight.itineraries[0]?.segments[0]?.arrival?.iataCode} for ${flight.price?.total} ${flight.price?.currency}`}
-                      className="mt-2 bg-pink-500 text-white px-5 py-2 rounded-full text-sm hover:bg-pink-600"
+                      className="mt-2 bg-[#FF7F7F] text-white px-5 py-2 rounded-full text-sm hover:bg-[#019FCD]"
                     >
                       Book Now
                     </button>
@@ -246,7 +245,7 @@ useEffect(() => {
 
             {loadingHotels && (
               <div role="status" aria-label="Loading hotels" className="flex justify-center py-20">
-                <div aria-hidden="true" className="w-10 h-10 border-4 border-pink-500 border-t-transparent rounded-full animate-spin" />
+                <div aria-hidden="true" className="w-10 h-10 border-4 border-[#FF7F7F] border-t-transparent rounded-full animate-spin" />
               </div>
             )}
 
@@ -266,20 +265,20 @@ useEffect(() => {
                   >
                     <div
                       aria-hidden="true"
-                      className="w-full h-32 bg-[#0099BB]  rounded-lg flex items-center justify-center mb-4"
+                      className="w-full h-32 bg-[#019FCD]  rounded-lg flex items-center justify-center mb-4"
                     />
                     <h3 className="text-lg font-bold mb-2">{hotel.name}</h3>
                     <p className="text-gray-500 text-sm mb-2">
                       {hotel.address?.cityName}, {hotel.address?.countryName}
                     </p>
                     {hotel.price?.total && (
-                      <p className="text-pink-500 font-semibold">
+                      <p className="text-[#FF7F7F] font-semibold">
                         {hotel.price.total} {hotel.price.currency}
                       </p>
                     )}
                     <button
                       aria-label={`Book ${hotel.name} in ${hotel.address?.cityName || cityCode}`}
-                      className="mt-4 bg-pink-500 text-white px-5 py-2 rounded-full text-sm hover:bg-pink-600"
+                      className="mt-4 bg-[#FF7F7F] text-white px-5 py-2 rounded-full text-sm hover:bg-[#019FCD]"
                     >
                       Book Now
                     </button>
